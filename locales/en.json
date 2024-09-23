@@ -1,0 +1,12 @@
+{
+  "hello": "Hello, {name}!",
+  "language": "Language",
+  "title": "EDEN",
+  "description": "EDEN",
+  "common": {
+    "close": "Close"
+  },
+  "noti": {
+    "reject_wallet": "You rejected the request in your wallet"
+  }
+}
