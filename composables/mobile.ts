@@ -1,6 +1,17 @@
-export function useMobile () {
-  const isMobile = computed(() => {
-    return window.innerWidth < 641
+export function useMobile() {
+  const result = ref(+window.innerWidth < 640)
+
+  function handleResize() {
+    result.value = +window.innerWidth < 640
+  }
+
+  onMounted(() => {
+    handleResize()
+    window.addEventListener('resize', handleResize)
   })
-  return isMobile.value
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
+  })
+  return result
 }

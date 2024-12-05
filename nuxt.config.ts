@@ -17,19 +17,16 @@ function getLocales (): { code: string; file: string }[] {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  experimental: {
-    watcher: 'chokidar'
-  },
-
+  ssr: false,
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1, height=device-height, minimum-scale=1.0',
+      viewport: 'width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no',
       meta: [
         {
           name: 'keywords',
           content:
-                       'eden'
+            'eden'
         }
       ],
       title: 'EDEN',
@@ -45,11 +42,9 @@ export default defineNuxtConfig({
       style: [],
       script: [
         {
-          src: 'https://telegram.org/js/telegram-web-app.js',
-          type: 'text/javascript',
-          onload:
-                       'window.Telegram.WebApp.expand(); window.Telegram.WebApp.disableVerticalSwipes();'
-        }
+          hid: 'gtmHead',
+          innerHTML: ``,
+        },
       ],
       noscript: []
     },
@@ -59,7 +54,8 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler'
+          api: 'modern-compiler',
+          silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
         }
       }
     }
@@ -78,7 +74,7 @@ export default defineNuxtConfig({
 
   hooks: {
     'vite:extendConfig': (config) => {
-           config.plugins!.push(nodePolyfills())
+      config.plugins!.push(nodePolyfills())
     }
   },
 
@@ -99,20 +95,15 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    vueI18n: './i18n.config.ts',
     strategy: 'no_prefix',
     locales: getLocales(),
     defaultLocale: process.env.DEFAULT_LANG || 'en',
-    fallbackLocale: process.env.DEFAULT_LANG || 'en',
     langDir: 'locales',
     compilation: {
-      strictMessage: false
+      strictMessage: false,
     },
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieCrossOrigin: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
+    detectBrowserLanguage: false,
   },
 
   postcss: {
@@ -132,7 +123,7 @@ export default defineNuxtConfig({
 
   devServer: {
     host: '0.0.0.0',
-    port: process.env.LISTEN_PORT || 1321
+    port: process.env.LISTEN_PORT || 3000
   },
 
   plugins: [],

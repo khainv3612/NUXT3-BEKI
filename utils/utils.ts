@@ -1,4 +1,3 @@
-import moment from 'moment'
 import NotificationService from '~/services/noti-service'
 import { authenticationStore } from '~/store/authentication'
 import { AMOUNT_DIGIT, PI_TOKEN } from '~/utils/constants'
@@ -263,16 +262,6 @@ export const convertToFloat = (num) => {
     return Number.parseFloat(num).toFixed(e)
   }
   return num
-}
-
-export function convertToLocalDate(utcDateString: string, format: string = '') {
-  // eslint-disable-next-line import/no-named-as-default-member
-  const utcDate = moment.utc(utcDateString)
-  const localDate = utcDate.local()
-  if (format) {
-    return localDate.format(format).toString()
-  }
-  return localDate
 }
 
 export function joinString(str) {

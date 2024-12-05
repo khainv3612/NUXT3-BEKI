@@ -24,3 +24,4 @@ export class TokenService {
     return useCookie(keyIsLoggedIn).value
   }
 }
+export const { getToken } = TokenService

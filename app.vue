@@ -25,12 +25,6 @@ LoadingService.startLoading()
 const i18n = useI18n()
 useHead({
   htmlAttrs: { lang: i18n.locale.value },
-  meta: [
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1, height=device-height, minimum-scale=1.0'
-    }
-  ]
 })
 useSeoMeta({
   ogImage: '/assets/image.png',

@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'eden-user',
+      name: 'fe-user',
       port: '3000',
       exec_mode: 'cluster',
       instances: 'max',

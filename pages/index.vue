@@ -1,6 +1,7 @@
 <template>
   <div>
-    <NuxtLink to="/home">Home</NuxtLink>
+    <NuxtLink to="/home">{{ $t('hello') }}</NuxtLink>
+    <p>{{ _isNil(1)}}</p>
   </div>
 </template>
 
