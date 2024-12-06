@@ -4,19 +4,22 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 /**
  * Returns all locales with their corresponding file names from `./locales`.
  */
-function getLocales (): { code: string; file: string }[] {
+function getLocales(): { code: string, file: string }[] {
   const files = fs.readdirSync('./locales')
 
   return files.map((file) => {
     return {
       code: file.split('.')[0],
-      file
+      file,
     }
   })
 }
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash', '@nuxt/eslint'],
+
+  plugins: [],
   ssr: false,
   app: {
     head: {
@@ -26,8 +29,8 @@ export default defineNuxtConfig({
         {
           name: 'keywords',
           content:
-            'eden'
-        }
+            'eden',
+        },
       ],
       title: 'EDEN',
       link: [
@@ -36,8 +39,8 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'
-        }
+          href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap',
+        },
       ],
       style: [],
       script: [
@@ -46,19 +49,17 @@ export default defineNuxtConfig({
           innerHTML: ``,
         },
       ],
-      noscript: []
+      noscript: [],
     },
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler',
-          silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
-        }
-      }
-    }
+
+  css: ['@/assets/scss/index.scss'],
+
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    },
   },
 
   runtimeConfig: {
@@ -68,30 +69,49 @@ export default defineNuxtConfig({
       defaultLang: 'en',
       enviroment: process.env.ENVIRONMENT || 'mainnet',
       titlePage: process.env.TITLE,
-      enableMultiLang: process.env.ENABLE_MULTI_LANGUAGE
-    }
+      enableMultiLang: process.env.ENABLE_MULTI_LANGUAGE,
+    },
+  },
+
+  devServer: {
+    host: '0.0.0.0',
+    port: process.env.LISTEN_PORT || 3000,
+  },
+
+  experimental: {
+    externalVue: false,
+    extends: 'content-wind',
+    experimental: {
+      watcher: 'chokidar',
+    },
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
+        },
+      },
+    },
+  },
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 
   hooks: {
     'vite:extendConfig': (config) => {
       config.plugins!.push(nodePolyfills())
-    }
+    },
   },
-
-  css: ['@/assets/scss/index.scss'],
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash'],
-
-  lodash: {
-    prefix: '_',
-    prefixSkip: ['string'],
-    upperAfterPrefix: false,
-    exclude: ['map'],
-    alias: [
-      ['camelCase', 'stringToCamelCase'],
-      ['kebabCase', 'stringToKebab'],
-      ['isDate', 'isLodashDate'],
-      ['isNil', 'isNil']
-    ]
+  eslint: {
+    config: {
+      stylistic: true,
+    },
   },
 
   i18n: {
@@ -106,32 +126,17 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
   },
 
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {}
-    }
+  lodash: {
+    prefix: '_',
+    prefixSkip: ['string'],
+    upperAfterPrefix: false,
+    exclude: ['map'],
+    alias: [
+      ['camelCase', 'stringToCamelCase'],
+      ['kebabCase', 'stringToKebab'],
+      ['isDate', 'isLodashDate'],
+      ['isNil', 'isNil'],
+    ],
   },
-
-  experimental: {
-    externalVue: false,
-    extends: 'content-wind',
-    experimental: {
-      watcher: 'chokidar'
-    }
-  },
-
-  devServer: {
-    host: '0.0.0.0',
-    port: process.env.LISTEN_PORT || 3000
-  },
-
-  plugins: [],
-
-  router: {
-    options: {
-      scrollBehaviorType: 'smooth'
-    }
-  }
 
 })

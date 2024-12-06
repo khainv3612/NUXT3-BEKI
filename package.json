@@ -12,10 +12,12 @@
     "lint": "eslint . --ext .js,.ts,.vue"
   },
   "dependencies": {
+    "@nuxt/eslint": "0.7.2",
     "@nuxt/image": "^1.8.1",
     "@pinia/nuxt": "^0.7.0",
     "axios": "^1.7.9",
     "element-plus": "^2.9.0",
+    "eslint": "^9.16.0",
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "nuxt": "^3.14.1592",
@@ -23,12 +25,9 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.1.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/i18n": "^8.5.6",
     "@types/js-cookie": "^3.0.6",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8.56.0",
-    "eslint-plugin-nuxt": "^4.0.0",
     "nuxt-lodash": "^2.5.3",
     "postcss": "^8.4.33",
     "sass": "^1.79.3",
@@ -37,7 +36,8 @@
     "vite": "^6.0.3",
     "vite-plugin-node-polyfills": "^0.22.0"
   },
-  "engines" : {
-    "node" : ">=20.0.0"
-  }
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
