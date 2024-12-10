@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
-    <slot />
-  </div>
+  <header class="w-full h-[var(--height-header)] bg-blue-300">
+    header
+  </header>
 </template>
