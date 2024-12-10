@@ -29,10 +29,10 @@ export default defineNuxtConfig({
         {
           name: 'keywords',
           content:
-            'eden',
+            'fe',
         },
       ],
-      title: 'EDEN',
+      title: 'fe',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
