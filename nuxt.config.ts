@@ -18,9 +18,9 @@ function getLocales(): { code: string, file: string }[] {
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash', '@nuxt/eslint'],
-
   plugins: [],
   ssr: false,
+
   app: {
     head: {
       charset: 'utf-8',
@@ -34,9 +34,19 @@ export default defineNuxtConfig({
       ],
       title: 'fe',
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.svg',
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com',
+        },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+        },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap',
@@ -51,7 +61,10 @@ export default defineNuxtConfig({
       ],
       noscript: [],
     },
-    pageTransition: { name: 'page', mode: 'out-in' },
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    },
   },
 
   css: ['@/assets/scss/index.scss'],
@@ -85,6 +98,9 @@ export default defineNuxtConfig({
       watcher: 'chokidar',
     },
   },
+
+  compatibilityDate: '2025-01-08',
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -108,6 +124,7 @@ export default defineNuxtConfig({
       config.plugins!.push(nodePolyfills())
     },
   },
+
   eslint: {
     config: {
       stylistic: true,
@@ -138,5 +155,4 @@ export default defineNuxtConfig({
       ['isNil', 'isNil'],
     ],
   },
-
 })
