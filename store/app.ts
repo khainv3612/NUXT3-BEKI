@@ -8,27 +8,27 @@ const appStore = defineStore('appStore', {
       show: false,
       type: '',
       title: '',
-      message: ''
+      message: '',
     },
     currentLang: useRuntimeConfig().public.DEFAULT_LANG,
     chainId: null,
     chain: {},
-    configProvider: enLocale
+    configProvider: enLocale,
   }),
   getters: {
     getLoading: state => state.loading,
-    getNotification: state => state.notification
+    getNotification: state => state.notification,
   },
   actions: {
-    setLoading (data: boolean) {
+    setLoading(data: boolean) {
       this.loading = data
     },
-    setCurrentLang (currentLang: String) {
+    setCurrentLang(currentLang: string) {
       this.currentLang = currentLang
     },
-    setConfigProvider (configProvider: any) {
+    setConfigProvider(configProvider: any) {
       this.configProvider = configProvider
-    }
-  }
+    },
+  },
 })
 export default appStore

@@ -9,7 +9,11 @@ module.exports = {
     './error.vue',
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        content: 'var(--width-content)'
+      }
+    },
     screens: {
       xs: '500px',
       sm: '640px',

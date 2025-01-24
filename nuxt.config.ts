@@ -17,7 +17,7 @@ function getLocales(): { code: string, file: string }[] {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash', '@nuxt/eslint'],
+  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
   plugins: [],
   ssr: false,
 
@@ -29,24 +29,14 @@ export default defineNuxtConfig({
         {
           name: 'keywords',
           content:
-            'fe',
+           'fe',
         },
       ],
       title: 'fe',
       link: [
-        {
-          rel: 'icon',
-          type: 'image/x-icon',
-          href: '/favicon.svg',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-        },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap',
@@ -61,10 +51,7 @@ export default defineNuxtConfig({
       ],
       noscript: [],
     },
-    pageTransition: {
-      name: 'page',
-      mode: 'out-in',
-    },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   css: ['@/assets/scss/index.scss'],
@@ -99,7 +86,7 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2025-01-08',
+  compatibilityDate: '2025-01-24',
 
   vite: {
     css: {
@@ -114,7 +101,6 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      tailwindcss: {},
       autoprefixer: {},
     },
   },
@@ -136,7 +122,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     locales: getLocales(),
     defaultLocale: process.env.DEFAULT_LANG || 'en',
-    langDir: 'locales',
+    langDir: '../locales',
     compilation: {
       strictMessage: false,
     },

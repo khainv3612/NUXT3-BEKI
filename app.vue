@@ -4,6 +4,7 @@
       <Title>{{ $t('title') }}</Title>
       <Meta name="description" :content="$t('description')" />
     </Head>
+
     <suspense>
       <template #default>
         <NuxtLayout>
@@ -17,6 +18,7 @@
 
 <script setup lang="ts">
 import { nextTick, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import LanguageService from '~/services/language-service'
 import LoadingService from '~/services/loading-service'
 import { trans } from '~/utils/utils'
@@ -28,7 +30,7 @@ useHead({
 })
 useSeoMeta({
   ogImage: '/assets/image.png',
-  ogDescription: trans('description')
+  ogDescription: trans('description'),
 })
 LanguageService.initLanguage()
 onMounted(async () => {
@@ -38,6 +40,7 @@ onMounted(async () => {
   }, 500)
 })
 </script>
+
 <style>
 .page-enter-active,
 .page-leave-active {

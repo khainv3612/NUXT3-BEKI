@@ -1,18 +1,18 @@
 <template>
-  <section>
+  <section class="w-full max-w-content mx-auto">
     <client-only>
       <LayoutHeader />
-      <LayoutContent>
+      <div class="layout-content">
         <slot />
-      </LayoutContent>
+      </div>
+      <LayoutFooter />
       <Notifications />
       <LayoutDialog />
-      <LayoutFooter />
     </client-only>
     <LoadingBar />
   </section>
 </template>
+
 <script setup lang="ts">
 import LoadingBar from '~/components/commons/LoadingBar.vue'
-
 </script>

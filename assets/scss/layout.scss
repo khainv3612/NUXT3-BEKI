@@ -1,12 +1,8 @@
-.max-w-content {
-  max-width: var(--width-content);
-}
-
 .min-h-content {
   min-height: calc(100dvh - var(--height-header) - var(--height-footer));
 }
 .layout-content {
-  @apply w-full max-w-content mx-auto
+  @apply min-h-content w-full
 }
 
 .mt-header {
