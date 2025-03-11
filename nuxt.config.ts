@@ -17,9 +17,10 @@ function getLocales(): { code: string, file: string }[] {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: false },
   modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
   plugins: [],
-  ssr: false,
+  ssr: true,
 
   app: {
     head: {

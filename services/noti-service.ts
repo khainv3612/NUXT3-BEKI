@@ -1,5 +1,5 @@
 import appStore from '@/store/app'
-import { NotificationModel } from '~/models/NotificationModel'
+import type { NotificationModel } from '~/models/NotificationModel'
 
 const NotificationService = {
   setNotification(data: NotificationModel) {

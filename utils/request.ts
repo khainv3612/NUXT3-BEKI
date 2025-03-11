@@ -1,6 +1,6 @@
 import { TokenService } from '@/services/token-service'
 import LanguageService from '@/services/language-service'
-import { OptionsInterceptors } from '~/models/OptionsInterceptors'
+import type { OptionsInterceptors } from '~/models/OptionsInterceptors'
 
 interface ParamsRequest {
   [key: string]: string | number | boolean | object
