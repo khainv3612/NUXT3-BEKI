@@ -1,5 +1,5 @@
 import NotificationService from '~/services/noti-service'
-import { authenticationStore } from '~/store/authentication'
+import { useAuthenticationStore } from '~/store/authentication'
 import { AMOUNT_DIGIT, PI_TOKEN } from '~/utils/constants'
 import { formatCoinEn, sliceNumber, sliceNumberToStr } from '~/utils/functions'
 import appStore from '~/store/app'
@@ -171,7 +171,7 @@ export function formatScientificPrice(value, digit = AMOUNT_DIGIT) {
 }
 
 export const checkLogin = () => {
-  const user = authenticationStore().user
+  const user = useAuthenticationStore().user
   if (_isNil(user) || _isEmpty(user)) {
     navigateTo('/login')
     return false

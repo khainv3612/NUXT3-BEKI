@@ -1,3 +1,5 @@
 {
-  "hello": "Hello every"
+  "hello": "Hello every",
+  "description": "description",
+  "title": "title"
 }

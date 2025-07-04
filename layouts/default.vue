@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full max-w-content mx-auto">
+  <section class="w-full mx-auto">
     <client-only>
       <LayoutHeader />
       <div class="layout-content">

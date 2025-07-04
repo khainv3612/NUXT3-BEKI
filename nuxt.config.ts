@@ -17,10 +17,10 @@ function getLocales(): { code: string, file: string }[] {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
   modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@element-plus/nuxt', 'nuxt-lodash', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
   plugins: [],
   ssr: true,
+  devtools: { enabled: false },
 
   app: {
     head: {
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       ],
       title: 'fe',
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         {
